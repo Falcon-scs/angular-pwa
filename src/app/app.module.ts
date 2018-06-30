@@ -9,12 +9,16 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { AppMaterialModule } from './app-material.module';
 import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { DrawerComponent } from './shared/drawer/drawer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    DrawerComponent
   ],
   imports: [
     BrowserModule,

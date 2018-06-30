@@ -6,6 +6,21 @@
 .mat-drawer-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+}
+
+.mat-tab-group {
+  height: 100%;
+}
+
+:host /deep/ .mat-tab-body-wrapper {
+  height: 100%;
+
+  .mat-tab-body-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
