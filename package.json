@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:host": "ng s --host 0.0.0.0 --disable-host-check --live-reload-client",
     "start:prod": "ng build --prod && lite-server --baseDir dist/proofing-pwa",
     "build": "ng build",
     "test": "ng test",
