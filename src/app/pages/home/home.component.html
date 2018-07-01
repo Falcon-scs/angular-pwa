@@ -3,21 +3,33 @@
     <app-drawer></app-drawer>
   </mat-drawer>
   <mat-drawer-content>
-    <app-navbar
-      [title]="'Proofing PWA'"
-      (menu)="drawer.toggle()">
+    <app-navbar [title]="'Proofing PWA'" (menu)="drawer.toggle()">
     </app-navbar>
     <mat-tab-group mat-stretch-tabs headerPosition="below">
       <mat-tab label="main">
+        <ng-template mat-tab-label>
+          <mat-icon svgIcon="home"></mat-icon>
+        </ng-template>
         HOME WORKS!!
       </mat-tab>
-      <mat-tab label="preview"> Content 2 </mat-tab>
-      <mat-tab label="chat"> Content 3 </mat-tab>
+      <mat-tab label="preview">
+        <ng-template mat-tab-label>
+          <mat-icon svgIcon="play"></mat-icon>
+        </ng-template>
+        PREVIEW WORKS!!
+      </mat-tab>
+      <mat-tab label="chat">
+        <ng-template mat-tab-label>
+          <mat-icon svgIcon="chat"></mat-icon>
+        </ng-template>
+        CHAT WORKS!!
+      </mat-tab>
       <mat-tab label="approve">
         <ng-template mat-tab-label>
-            <mat-icon>thumb_up</mat-icon>
-          </ng-template>
-        </mat-tab>
+          <mat-icon svgIcon="approve"></mat-icon>
+        </ng-template>
+        APPROVE WORKS!!
+      </mat-tab>
     </mat-tab-group>
   </mat-drawer-content>
 </mat-drawer-container>

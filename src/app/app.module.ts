@@ -11,6 +11,7 @@ import { AppMaterialModule } from './app-material.module';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { DrawerComponent } from './shared/drawer/drawer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DrawerComponent } from './shared/drawer/drawer.component';
     BrowserModule,
     AppRoutingModule,
     AppMaterialModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],

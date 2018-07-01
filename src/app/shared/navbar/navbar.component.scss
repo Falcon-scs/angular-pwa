@@ -4,4 +4,14 @@
   align-items: center;
   background-color: white;
   border-bottom: solid 1px #ddd;
+  padding: 0 5px 0 5px;
+
+  p {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+.mat-icon-button {
+  color: rgba(0, 0, 0, 0.6);
 }
