@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,11 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private iconReg: MatIconRegistry, private sanitizer: DomSanitizer) {
+  constructor(
+    private iconReg: MatIconRegistry,
+    private sanitizer: DomSanitizer,
+    private router: Router
+  ) {
     iconReg.addSvgIcon('options', sanitizer.bypassSecurityTrustResourceUrl('./assets/svg/ic_options.svg'));
     iconReg.addSvgIcon('home', sanitizer.bypassSecurityTrustResourceUrl('./assets/svg/ic_home.svg'));
     iconReg.addSvgIcon('chat', sanitizer.bypassSecurityTrustResourceUrl('./assets/svg/ic_chat.svg'));
@@ -32,6 +37,9 @@ export class AppComponent {
     iconReg.addSvgIcon('satisfied', sanitizer.bypassSecurityTrustResourceUrl('./assets/svg/ic_satisfied.svg'));
     iconReg.addSvgIcon('request-changes', sanitizer.bypassSecurityTrustResourceUrl('./assets/svg/ic_req_changes.svg'));
     iconReg.addSvgIcon('heart', sanitizer.bypassSecurityTrustResourceUrl('./assets/svg/ic_heart.svg'));
+
+    // TODO: on ProofConfig loaded, go to ./home
+    router.navigate(['home']);
   }
 
   getRouterOutletState(outlet) {

@@ -5,7 +5,7 @@
   <mat-drawer-content>
     <app-navbar [title]="'Proofing PWA'" (menu)="drawer.toggle()">
     </app-navbar>
-    <mat-tab-group mat-stretch-tabs headerPosition="below">
+    <mat-tab-group mat-stretch-tabs headerPosition="below" (selectedIndexChange)="onTabIndexChange($event)">
       <mat-tab label="main">
         <ng-template mat-tab-label>
           <mat-icon svgIcon="home"></mat-icon>
