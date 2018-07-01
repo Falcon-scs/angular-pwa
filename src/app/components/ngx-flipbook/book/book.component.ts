@@ -164,6 +164,72 @@ export class BookComponent implements OnInit, OnDestroy {
       });
   }
 
+  onPagePan(event, page) {
+
+    if (TweenLite.getTweensOf(page, true).length > 0) { return; }
+
+    if (page.lock) {
+      this.flipTimeLine = new TimelineLite();
+      this.flipTimeLine.add(TweenLite.to(page, 0.3,
+        {
+          rotation: page.rotation < -90 ? -175 : -5,
+          ease: Power2.easeOut,
+          onUpdate: this.render
+        })
+      );
+      this.flipTimeLine.add(TweenLite.to(page, 0.2,
+        {
+          rotation: page.rotation < -90 ? -180 : 0,
+          ease: Power2.easeOut,
+          onUpdate: this.render
+        })
+      );
+
+      return;
+    }
+
+    this.setPageAtTop(page);
+    const bookBounds = this.elr.nativeElement.getBoundingClientRect();
+        if (event.center.x < bookBounds.left) {
+          page.rotation = -180;
+        } else if (event.center.x > bookBounds.left + bookBounds.width) {
+          page.rotation = 0;
+        } else {
+          page.rotation = -180 + ((event.center.x - bookBounds.left) / bookBounds.width) * 180;
+        }
+
+        this.render();
+  }
+
+  onPagePanEnd(event, page) {
+    this.flipTimeLine = new TimelineLite();
+    this.flipTimeLine.add(TweenLite.to(page, 1,
+      {
+        rotation: page.rotation < -90 ? -180 : 0,
+        ease: Power2.easeOut,
+        onUpdate: this.render,
+        onComplete: this.sortBook,
+        onCompleteParams: [page.rotation < -90 ? page.index : page.index - 1]
+      }));
+  }
+
+  onSwipe(event, page) {
+    if (page.lock) { return; }
+
+    if (TweenLite.getTweensOf(page, true).length > 0) {
+      TweenLite.getTweensOf(page, true)[0].kill();
+    }
+
+    this.flipTimeLine.add(TweenLite.to(page, 1,
+      {
+        rotation: event.deltaX > 0 ? 0 : -180,
+        ease: Power2.easeOut,
+        onUpdate: this.render,
+        onComplete: this.sortBook,
+        onCompleteParams: [page.rotation < -90 ? page.index : page.index - 1]
+      }));
+  }
+
   navigate(direction: number) {
 
     if (this.currentIndex === 0 || this.currentIndex === this.pages.length) { return; }
