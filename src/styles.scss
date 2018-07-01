@@ -5,6 +5,10 @@
   font-family: 'Roboto';
 }
 
+html {
+  -ms-content-zooming: none;
+}
+
 body {
   overflow: hidden !important;
   background-color: #f5f5f5;

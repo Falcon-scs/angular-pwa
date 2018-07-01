@@ -1,9 +1,10 @@
 {
   "name": "proofing-pwa",
   "short_name": "proofing-pwa",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#000",
+  "background_color": "#fff",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [
