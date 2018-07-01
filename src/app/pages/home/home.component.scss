@@ -24,3 +24,18 @@
     justify-content: center;
   }
 }
+
+.unreadBadge {
+  position: absolute;
+  right: calc(50% - 17px);
+  top: 5px;
+  background-color: red;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  min-width: 16px;
+  height: 16px;
+  padding-top: 2px;
+  color: white;
+}
