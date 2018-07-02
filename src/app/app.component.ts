@@ -39,7 +39,7 @@ export class AppComponent {
     iconReg.addSvgIcon('heart', sanitizer.bypassSecurityTrustResourceUrl('./assets/svg/ic_heart.svg'));
 
     // TODO: on ProofConfig loaded, go to ./home
-    router.navigate(['home']);
+    router.navigate(['login']);
   }
 
   getRouterOutletState(outlet) {

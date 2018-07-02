@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://b4cui2uq95.execute-api.eu-west-1.amazonaws.com/dev/',
+  storageUrl: 'https://s3.eu-west-3.amazonaws.com/proofing-mock-api/',
+  proof_id: 'PK7UJZ2C5'
 };
+
 
 /*
  * In development mode, to ignore zone related error stack frames such as
